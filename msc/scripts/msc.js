@@ -24,8 +24,8 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 const rdb = getDatabase(app);
-alert("end of firebase setup");
-alert("rtd object: " + rdb);
+//alert("end of firebase setup");
+//alert("rtd object: " + rdb);
 
 
 
@@ -34,3 +34,5 @@ const board = document.getElementById("board");
 intface.addEventListener("input", ()=>{
     board.innerHTML = intface.textContent;
 })
+
+
