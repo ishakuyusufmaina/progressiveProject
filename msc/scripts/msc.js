@@ -38,14 +38,12 @@ intface.addEventListener("input", ()=>{
 const updateBtn = document.getElementById("update-btn");
 updateBtn.addEventListener("click", ()=>{
   set(remoteBoardRef, {
-    htmlSource: intface.textContent;
+    htmlSource: intface.textContent
   })
-}
-)
+})
 
 onValue(remoteBoardRef, (snapshot)=>{
-  let data = snapshot.val;
+  let data = snapshot.val();
   let htmlSrc = data.htmlSource;
   board.innerHTML = htmlSrc;
-}
-        );
+});
