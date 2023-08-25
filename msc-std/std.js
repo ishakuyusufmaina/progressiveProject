@@ -31,11 +31,12 @@ alert(remoteBoardRef);
 
 //const intface = document.getElementById("interface");
 const board = document.getElementById("board");
-intface.addEventListener("input", ()=>{
-   // board.innerHTML = intface.textContent;
+
+/* intface.addEventListener("input", ()=>{
+     board.innerHTML = intface.textContent;
 })
 
-/* const updateBtn = document.getElementById("update-btn");
+const updateBtn = document.getElementById("update-btn");
 updateBtn.addEventListener("click", ()=>{
   set(remoteBoardRef, {
     htmlSource: intface.textContent
