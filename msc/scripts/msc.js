@@ -46,4 +46,5 @@ onValue(remoteBoardRef, (snapshot)=>{
   let data = snapshot.val();
   let htmlSrc = data.htmlSource;
   board.innerHTML = htmlSrc;
+  intface.textContent = htmlSrc;
 });
