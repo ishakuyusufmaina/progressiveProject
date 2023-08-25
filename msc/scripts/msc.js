@@ -26,13 +26,26 @@ const db = getFirestore(app);
 const rdb = getDatabase(app);
 //alert("end of firebase setup");
 //alert("rtd object: " + rdb);
-
-
+const remoteBoardRef = ref(rdb, "boards/b1");
+alert(remoteBoardRef);
 
 const intface = document.getElementById("interface");
 const board = document.getElementById("board");
 intface.addEventListener("input", ()=>{
-    board.innerHTML = intface.textContent;
+   // board.innerHTML = intface.textContent;
 })
 
+const updateBtn = document.getElementById("update-btn");
+updateBtn.addEventListener("click", ()=>{
+  set(remoteBoardRef, {
+    htmlSource: intface.textContent;
+  })
+}
+)
 
+onValue(remoteBoardRef, (snapshot)=>{
+  let data = snapshot.val;
+  let htmlSrc = data.htmlSource;
+  board.innerHTML = htmlSrc;
+}
+        );
