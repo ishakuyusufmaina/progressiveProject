@@ -24,10 +24,10 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 const rdb = getDatabase(app);
-//alert("end of firebase setup");
-//alert("rtd object: " + rdb);
-//const remoteBoardRef = ref(rdb, "boards/b1");
-alert(6);
+alert("end of firebase setup");
+alert("rtd object: " + rdb);
+const remoteBoardRef = ref(rdb, "boards/b1");
+alert(remoteBoardRef);
 
 const intface = document.getElementById("interface");
 const board = document.getElementById("board");
