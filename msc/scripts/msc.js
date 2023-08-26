@@ -61,5 +61,6 @@ let loginBtn = document.createElement("button");
 loginContainer.appendChild(loginBtn);
 loginBtn.innerHTML = "Login";
 loginBtn.addEventListener("click", ()=>{
+  alert("click");
   signInWithRedirect(auth, provider);
 });
