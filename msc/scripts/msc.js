@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-analytics.js";
 import {getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
-import {getAuth, createUserWithEmailAndPassword} from "https:/www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
+import {getAuth, GoogleAuthProvider, signInWithRedirect, createUserWithEmailAndPassword} from "https:/www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
 import {getDatabase, ref, set, onValue} from "https:/www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
 // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -47,4 +47,18 @@ onValue(remoteBoardRef, (snapshot)=>{
   let htmlSrc = data.htmlSource;
   board.innerHTML = htmlSrc;
   intface.innerText = htmlSrc;
+});
+
+
+//authentication 
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+let body = document.body;
+let loginContainer = document.createElement("div");
+body.append(loginContainer);
+loginContainer.innerHTML = "<h3>Login with Google</h3>";
+let loginBtn = document.createElement("button");
+loginBtn.innerHTML = "Login";
+loginBtn.setAttribute("click", ()=>{
+  signInWithRedirect(auth, provider);
 });
