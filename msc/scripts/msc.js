@@ -58,6 +58,7 @@ let loginContainer = document.createElement("div");
 body.append(loginContainer);
 loginContainer.innerHTML = "<h3>Login with Google</h3>";
 let loginBtn = document.createElement("button");
+loginContainer.appendChild(loginBtn);
 loginBtn.innerHTML = "Login";
 loginBtn.setAttribute("click", ()=>{
   signInWithRedirect(auth, provider);
